@@ -1,16 +1,16 @@
 .login-container {
   height: 100vh;
-   width: 100vw; 
+  width: 100vw; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fafafa;
+  background-color: #FFF8DC; /* light yellow background */
   font-family: "Poppins", sans-serif;
 }
 
 .login-container h2 {
-  color: #060606;
+  color: #000000; /* black text */
   margin-bottom: 20px;
 }
 
@@ -24,33 +24,39 @@ form {
 input {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000; /* black border */
   outline: none;
+  background-color: #FFFACD; /* light yellow input */
+  color: #000000; /* black text */
 }
 
 button {
   padding: 10px;
   border: none;
   border-radius: 8px;
-  background-color: #6a5acd;
-  color: white;
+  background-color: #FFD700; /* golden yellow */
+  color: #000000; /* black text */
   cursor: pointer;
   font-weight: 500;
   transition: 0.3s;
 }
 
 button:hover {
-  background-color: #5a4acb;
+  background-color: #FFC300; /* darker yellow on hover */
 }
 
 p {
   margin-top: 15px;
   font-size: 14px;
-  color: #000000;
+  color: #000000; /* black text */
 }
 
 a {
-  color: #6a5acd;
+  color: #FFD700; /* golden yellow links */
   text-decoration: none;
   font-weight: 500;
+}
+
+input::placeholder {
+  color: #666600; /* dark yellow placeholder */
 }
