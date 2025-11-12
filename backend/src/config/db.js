@@ -1,25 +1,10 @@
-// import { PrismaClient } from '@prisma/client';
-
-// const prisma = new PrismaClient();
-
-// export const connectDB = async () => {
-//   try {
-//     await prisma.$connect();
-//     console.log('✅ Connected to MongoDB Atlas via Prisma');
-//   } catch (error) {
-//     console.error('❌ Database connection failed:', error.message);
-//     process.exit(1);
-//   }
-// };
-
-// export default prisma;
-
-
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    const uri = process.env.MONGO_URI;
+    if (!uri) throw new Error("MONGO_URI missing in .env");
+    await mongoose.connect(uri);
     console.log("✅ MongoDB connected successfully!");
   } catch (err) {
     console.error("❌ MongoDB connection error:", err.message);
