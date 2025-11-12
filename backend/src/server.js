@@ -7,8 +7,22 @@ dotenv.config();
 import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://solosphere-fs.vercel.app"
+];
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
