@@ -24,13 +24,13 @@ const handleSubmit = async (e) => {
     console.log("🔍 Response:", data);
 
     if (res.ok) {
-      alert("✅ Login successful!");
+      alert(" Login successful!");
       localStorage.setItem("token", data.token);
     } else {
       alert(data?.message || "Login failed!");
     }
   } catch (error) {
-    console.error("❌ Network error during login:", error);
+    console.error("Network error during login:", error);
     alert("Something went wrong! Check console for details.");
   }
 };

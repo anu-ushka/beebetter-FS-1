@@ -17,7 +17,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/signup", {
+    const res = await fetch("http://localhost:5001/api/auth/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -34,7 +34,8 @@ const handleSubmit = async (e) => {
       alert(data?.message || "Signup failed!");
     }
   } catch (error) {
-    console.error("❌ Network error during signup:", error);
+
+    console.error("Network error during signup:", error);
     alert("Something went wrong! Check console for details.");
   }
 };
@@ -43,7 +44,7 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="signup-container">
-      <h2>Create Account ✨</h2>
+      <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
