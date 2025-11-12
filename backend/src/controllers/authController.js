@@ -9,10 +9,12 @@ export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
+    console.log("email", email)
     if (!name || !email || !password)
       return res.status(400).json({ message: "All fields are required" });
-
     const existingUser = await User.findOne({ email });
+    console.log("existing", existingUser)
+
     if (existingUser)
       return res.status(400).json({ message: "User already exists" });
 
@@ -22,6 +24,7 @@ export const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
     });
+    console.log(user)
 
     const token = generateToken(user._id);
 
