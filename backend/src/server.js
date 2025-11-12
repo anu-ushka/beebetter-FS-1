@@ -8,8 +8,7 @@ import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://solosphere-fs.vercel.app"
+  "http://localhost:5173"
 ];
 
 app.use(cors({
@@ -37,9 +36,15 @@ app.get("/test", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
+// const PORT = process.env.PORT || 5001;
 const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 await connectDB();
 console.log("Moongoose connected")
+
+
 
 export default app;
